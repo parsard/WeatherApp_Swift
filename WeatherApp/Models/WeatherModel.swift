@@ -1,8 +1,14 @@
-//
-//  WeatheModel.swift
-//  WeatherApp
-//
-//  Created by parsa rood on 8/7/1404 AP.
-//
-
 import Foundation
+
+struct WeatherResponse: Codable {
+    let currentWeather: CurrentWeather
+
+    enum CodingKeys: String, CodingKey {
+        case currentWeather = "current_weather"
+    }
+}
+
+struct CurrentWeather: Codable {
+    let temperature: Double
+    let windspeed: Double
+}
